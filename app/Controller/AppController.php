@@ -45,7 +45,7 @@ class AppController extends Controller {
                 'action' => 'display',
                 'home'
             ),
-            'authorize' => array('Controller') // Added this line
+            'authorize' => array('Controller')
         )
     );
 
