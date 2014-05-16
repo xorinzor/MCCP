@@ -19,8 +19,8 @@ class User extends AppModel {
         ),
         'role' => array(
             'valid' => array(
-                'rule' => array('inList', array('admin', 'author')),
-                'message' => 'Please enter a valid role',
+                'rule' => array('numeric'),
+                'message' => 'Please enter a valid role ID',
                 'allowEmpty' => false
             )
         )

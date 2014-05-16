@@ -40,7 +40,8 @@ class UsersController extends AppController {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                return $this->redirect(array('action' => 'index'));
+                $this->redirect(array('action' => 'index'));
+                return;
             }
             $this->Session->setFlash(
                 __('The user could not be saved. Please, try again.')
@@ -56,7 +57,8 @@ class UsersController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                return $this->redirect(array('action' => 'index'));
+                $this->redirect(array('action' => 'index'));
+                return;
             }
             $this->Session->setFlash(
                 __('The user could not be saved. Please, try again.')
@@ -76,10 +78,12 @@ class UsersController extends AppController {
         }
         if ($this->User->delete()) {
             $this->Session->setFlash(__('User deleted'));
-            return $this->redirect(array('action' => 'index'));
+            $this->redirect(array('action' => 'index'));
+            return;
         }
         $this->Session->setFlash(__('User was not deleted'));
-        return $this->redirect(array('action' => 'index'));
+        $this->redirect(array('action' => 'index'));
+        return;
     }
 
     public function login() {
@@ -88,13 +92,15 @@ class UsersController extends AppController {
 
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                return $this->redirect($this->Auth->redirect());
+                $this->redirect($this->Auth->redirect());
+                return;
             }
             $this->Session->setFlash(__('Invalid username or password, try again'));
         }
     }
 
     public function logout() {
-        return $this->redirect($this->Auth->logout());
+        $this->redirect($this->Auth->logout());
+        return;
     }
 }

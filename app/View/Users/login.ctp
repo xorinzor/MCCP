@@ -30,11 +30,12 @@ $title_for_layout = 'Login';
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <?php
-                        echo $this->Form->input('', array(
+                        echo $this->Form->input('username', array(
                             'id' => 'username',
                             'type' => 'text',
                             'class' => 'form-control',
-                            'placeholder' => 'username'
+                            'placeholder' => 'username',
+                            'label' => false
                         ));
                         ?>
                     </div>
@@ -44,11 +45,12 @@ $title_for_layout = 'Login';
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <?php
-                            echo $this->Form->input('', array(
+                            echo $this->Form->input('password', array(
                                 'id' => 'password',
                                 'type' => 'password',
                                 'class' => 'form-control',
-                                'placeholder' => 'password'
+                                'placeholder' => 'password',
+                                'label' => false
                             ));
                         ?>
                     </div>

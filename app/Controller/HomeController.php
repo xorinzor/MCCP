@@ -10,4 +10,6 @@ class HomeController extends AppController {
         //Add dashboard related function here
         $this->render('/Pages/home');
     }
+
+
 }
