@@ -1,21 +1,4 @@
 <?php
-/**
- *
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-
 $cakeDescription = __d('cake_dev', 'MCCP');
 $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 ?>
@@ -44,46 +27,70 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     </head>
 
     <body>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <header id="header">
-                        <div class="top-bar">
-                            <div class="navbar pull-right" role="navigation">
-                                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                                    <ul class="nav navbar-nav">
-                                        <li>
-                                            <a href="index.html" data-original-title="" title="">User management</a>
-                                        </li>
-                                        <li>
-                                            <a href="index.html" data-original-title="" title="">Server management</a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-original-title="" title="">Select Server <b class="caret"></b></a>
-                                            <ul class="dropdown-menu">
-                                                <li class="active"><a href="#" data-original-title="" title="">192.168.13.37</a></li>
-                                                <li><a href="#" data-original-title="" title="">80.08.1.35</a></li>
-                                                <li><a href="#" data-original-title="" title="">127.0.0.1</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-original-title="" title=""><i class="icon-user"></i> Xorinzor <b class="caret"></b></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#" data-original-title="" title="">Profile Settings</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="/users/logout" data-original-title="" title="">Logout</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-
-                        <div id="menu" class="navbar" role="navigation">
+        <div class="container">
+            <header id="header">
+                <div class="row">
+                    <div class="top-bar col-xs-12 col-md-9 col-lg-7 pull-right">
+                        <div class="navbar">
                             <div class="navbar-header">
+                                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+
+                            <nav class="collapse navbar-collapse bs-navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <div id="serverQuickControl">
+                                            <select>
+                                                <option>192.168.13.37</option>
+                                                <option>80.08.1.35</option>
+                                                <option>127.0.0.1</option>
+                                            </select>
+
+                                            <ul id="serverQuickControlOptions">
+                                                <li><i class="btn btn-danger glyphicon glyphicon-off"></i></li>
+                                                <li><i class="btn btn-info glyphicon glyphicon-repeat"></i></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="divider-vertical"></li>
+                                    <li>
+                                        <a href="index.html" data-original-title="" title="">User management</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.html" data-original-title="" title="">Manage servers</a>
+                                    </li>
+                                </ul>
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-original-title="" title=""><i class="icon-user"></i> <?php echo ucfirst(AuthComponent::user('username')); ?><b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" data-original-title="" title="">Profile Settings</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="/users/logout" data-original-title="" title="">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="menu" class="navbar">
+                            <div class="navbar-header">
+                                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
                                 <a class="navbar-brand" href="#">MCCP</a>
                             </div>
 
@@ -108,17 +115,15 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                 </ul>
                             </nav>
                         </div>
-                    </header>
+                    </div>
                 </div>
-            </div>
+            </header>
 
-            <div class="row">
-                <div id="maincontent">
-                    <?php
-                        echo $this->Session->flash();
-                        echo $this->fetch('content');
-                    ?>
-                </div>
+            <div id="maincontent" class="container">
+                <?php
+                    echo $this->Session->flash();
+                    echo $this->fetch('content');
+                ?>
             </div>
 
             <div class="row">

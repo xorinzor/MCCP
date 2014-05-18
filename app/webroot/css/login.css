@@ -3,13 +3,6 @@ html {
 }
 
 body {
-    /*
-    background: url(../bg1.png) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    */
     background: #D5D5D5;
 }
 
@@ -35,7 +28,7 @@ body {
     padding: 25px;
     width: 420px;
     height: 320px;
-    background: white;
+    background: #FFFFFF;
     text-align: center;
 }
 
