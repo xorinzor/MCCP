@@ -4,7 +4,7 @@ $this->Html->script('excanvas.min', array('inline' => false, 'block' => 'scriptO
 ?>
 
 <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Server information</h3>
@@ -47,7 +47,7 @@ $this->Html->script('excanvas.min', array('inline' => false, 'block' => 'scriptO
         </div>
     </div>
 
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Latest events</h3>
@@ -87,42 +87,51 @@ $this->Html->script('excanvas.min', array('inline' => false, 'block' => 'scriptO
         </div>
     </div>
 
-    <div class="col-xs-12 col-md-3 col-lg-5">
+    <div class="col-xs-12 col-lg-5">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">System Resource Information</h3>
             </div>
             <div class="panel-body" id="systemResourceInformation">
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <p><strong>CPU</strong></p>
-                            <div id="cpuGauge"></div>
+                <fieldset>
+                    <legend>CPU</legend>
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-4">
+                                <div id="cpuGauge"></div>
+                            </div>
+                            <div id="cpuChart" class="chart col-sm-8 col-md-9 col-lg-8 hidden-xs" style="height: 150px;"></div>
                         </div>
-                        <div id="cpuChart" class="col-xs-9" style="height: 170px;"></div>
                     </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <p><strong>Memory</strong></p>
-                            <p>Available 3,4 GB</p>
-                            <p>In use 4,4 GB</p>
-                            <p>Total 8GB</p>
-                            <div id="memoryGauge"></div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Memory</legend>
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-4">
+                                <p>Available 3,4 GB</p>
+                                <p>In use 4,4 GB</p>
+                                <p>Total 8GB</p>
+                                <div id="memoryGauge"></div>
+                            </div>
+                            <div id="memoryChart" class="chart col-sm-8 col-md-9 col-lg-8 hidden-xs" style="height: 200px;"></div>
                         </div>
-                        <div id="memoryChart" class="col-xs-9" style="height: 250px;"></div>
                     </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <p><strong>Bandwidth</strong></p>
-                            <p>up 10kb/sec</p>
-                            <p>down 3kb/sec</p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Bandwidth</legend>
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-4">
+                                <p>up 10kb/sec</p>
+                                <p>down 3kb/sec</p>
+                            </div>
+                            <div id="dataChart" class="chart col-sm-8 col-md-9 col-lg-8 hidden-xs" style="height: 130px;"></div>
                         </div>
-                        <div id="dataChart" class="col-xs-9" style="height: 150px;"></div>
-                    </div>                </div>
+                    </div>
+                </fieldset>
             </div>
         </div>
     </div>

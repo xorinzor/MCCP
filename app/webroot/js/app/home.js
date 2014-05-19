@@ -1,107 +1,118 @@
 $(function() {
-    var container = $("#cpuChart");
-    var maximum = container.outerWidth() / 2 || 300;
-    var data = [];
+    try {
+        var container = $("#cpuChart");
+        var maximum = container.outerWidth() / 2 || 300;
+        var data = [];
 
-    function getRandomData() {
+        function getRandomData() {
 
-        if (data.length) {
-            data = data.slice(1);
+            if (data.length) {
+                data = data.slice(1);
+            }
+
+            while (data.length < maximum) {
+                var previous = data.length ? data[data.length - 1] : 50;
+                var y = previous + Math.random() * 10 - 5;
+                data.push(y < 0 ? 0 : y > 100 ? 100 : y);
+            }
+
+            // zip the generated y values with the x values
+
+            var res = [];
+            for (var i = 0; i < data.length; ++i) {
+                res.push([i, data[i]])
+            }
+
+            return res;
         }
 
-        while (data.length < maximum) {
-            var previous = data.length ? data[data.length - 1] : 50;
-            var y = previous + Math.random() * 10 - 5;
-            data.push(y < 0 ? 0 : y > 100 ? 100 : y);
-        }
+        var series = [{
+            color: "#2E9AFE",
+            data: getRandomData(),
+            lines: {
+                fill: true
+            }
+        }];
 
-        // zip the generated y values with the x values
+        var series2 = [{
+            color: "#8A0868",
+            data: getRandomData(),
+            lines: {
+                fill: true
+            }
+        }];
 
-        var res = [];
-        for (var i = 0; i < data.length; ++i) {
-            res.push([i, data[i]])
-        }
+        var series3 = [{
+            color: "#DF7401",
+            data: getRandomData(),
+            lines: {
+                fill: true
+            }
+        }];
 
-        return res;
+        var plotstuff = {
+            grid: {
+                borderWidth: 1,
+                minBorderMargin: 10,
+                labelMargin: 5,
+                backgroundColor: {
+                    colors: ["#fff", "#e4f4f4"]
+                },
+                markings: function(axes) {
+                    var markings = [];
+                    var xaxis = axes.xaxis;
+                    for (var x = Math.floor(xaxis.min); x < xaxis.max; x += xaxis.tickSize * 2) {
+                        markings.push({ xaxis: { from: x, to: x + xaxis.tickSize }, color: "rgba(232, 232, 255, 0.2)" });
+                    }
+                    return markings;
+                }
+            },
+            xaxis: {
+                tickFormatter: function() {
+                    return "";
+                }
+            },
+            yaxis: {
+                min: 0,
+                max: 100
+            },
+            legend: {
+                show: false
+            }
+        };
+
+        var plot = $.plot($("#cpuChart"), series, plotstuff);
+        var plot2 = $.plot($("#memoryChart"), series2, plotstuff);
+        var plot3 = $.plot($("#dataChart"), series3, plotstuff);
+    } catch(e) {
+
     }
 
-    var series = [{
-        color: "#2E9AFE",
-        data: getRandomData(),
-        lines: {
-            fill: true
-        }
-    }];
 
-    var series2 = [{
-        color: "#8A0868",
-        data: getRandomData(),
-        lines: {
-            fill: true
-        }
-    }];
-
-    var series3 = [{
-        color: "#DF7401",
-        data: getRandomData(),
-        lines: {
-            fill: true
-        }
-    }];
-
-    var plotstuff = {
-        grid: {
-            borderWidth: 1,
-            minBorderMargin: 20,
-            labelMargin: 10,
-            backgroundColor: {
-                colors: ["#fff", "#e4f4f4"]
-            },
-            margin: {
-                top: 8,
-                bottom: 20,
-                left: 20
-            },
-            markings: function(axes) {
-                var markings = [];
-                var xaxis = axes.xaxis;
-                for (var x = Math.floor(xaxis.min); x < xaxis.max; x += xaxis.tickSize * 2) {
-                    markings.push({ xaxis: { from: x, to: x + xaxis.tickSize }, color: "rgba(232, 232, 255, 0.2)" });
-                }
-                return markings;
-            }
-        },
-        xaxis: {
-            tickFormatter: function() {
-                return "";
-            }
-        },
-        yaxis: {
-            min: 0,
-            max: 110
-        },
-        legend: {
-            show: true
-        }
-    };
-
-    var plot = $.plot($("#cpuChart"), series, plotstuff);
-    var plot2 = $.plot($("#memoryChart"), series2, plotstuff);
-    var plot3 = $.plot($("#dataChart"), series3, plotstuff);
+    $(window).resize(function() {
+        try {
+            plot = $.plot($("#cpuChart"), series, plotstuff);
+            plot2 = $.plot($("#memoryChart"), series2, plotstuff);
+            plot3 = $.plot($("#dataChart"), series3, plotstuff);
+        } catch(e) {}
+    });
 
     // Update the random dataset at 25FPS for a smoothly-animating chart
     setInterval(function updateRandom() {
-        series[0].data = getRandomData();
-        series2[0].data = getRandomData();
-        series3[0].data = getRandomData();
+        try {
+            series[0].data = getRandomData();
+            series2[0].data = getRandomData();
+            series3[0].data = getRandomData();
 
-        plot.setData(series);
-        plot.draw();
-        plot2.setData(series2);
-        plot2.draw();
-        plot3.setData(series3);
-        plot3.draw();
+            plot.setData(series);
+            plot.draw();
+            plot2.setData(series2);
+            plot2.draw();
+            plot3.setData(series3);
+            plot3.draw();
+        } catch(e) {}
     }, 1000/20);
+
 
     var g1 = new JustGage({
         id: "cpuGauge",

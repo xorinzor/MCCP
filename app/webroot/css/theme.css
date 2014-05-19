@@ -143,6 +143,44 @@ body {
     border-top: 0px;
 }
 
+/* the hotbar buttons on the left */
+@media only screen and (min-width : 992px) {
+    #hotbarLeft {
+        position: absolute;
+        left: 0;
+        width: 40px;
+    }
+
+    #wrapper {
+        float: left;
+        padding-left: 50px;
+    }
+}
+
+#hotbarLeft {
+    padding-top: 123px;
+}
+
+#hotbarLeft > .btn {
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    width: 40px;
+    height: 90px;
+}
+
+#hotbarLeft > .btn .btn-text {
+    -ms-transform:      rotate(90deg); /* IE 9 */
+    -moz-transform:     rotate(90deg); /* Firefox */
+    -webkit-transform:  rotate(90deg); /* Safari and Chrome */
+    -o-transform:       rotate(90deg); /* Opera */
+    margin: 0;
+    display: block;
+}
+
 /* the server <select> and control buttons in the top-bar */
 #serverQuickControl {
     padding: 0 20px;
@@ -171,20 +209,16 @@ body {
     top: -2px;
 }
 
+/* the main menu options (underneath the top-bar) */
 #menu {
     -webkit-border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
     border-radius: 4px 4px 0 0;
 }
 
+/* the content area */
 #maincontent {
     padding: 10px 0 0 0;
-}
-
-#footer {
-    width: 100%;
-    text-align: center;
-    color: #B6B6B6;
 }
 
 #systemResourceInformation p {
@@ -195,4 +229,11 @@ body {
     width:160px;
     height:130px;
     display: inline-block;
+}
+
+/* the footer */
+#footer {
+    width: 100%;
+    text-align: center;
+    color: #B6B6B6;
 }

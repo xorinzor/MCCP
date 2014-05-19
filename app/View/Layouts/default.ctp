@@ -33,7 +33,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version());
     </head>
 
     <body>
-        <div class="container">
+        <div class="hidden-xs hidden-sm" id="hotbarLeft">
+            <div class="btn btn-default"><p class="btn-text"><i class="glyphicon glyphicon-list-alt"></i> Console</p></div>
+        </div>
+        <div class="container" id="wrapper">
             <header id="header">
                 <div class="row">
                     <div class="top-bar col-xs-12 col-md-9 col-lg-7 pull-right">
