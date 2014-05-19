@@ -1,6 +1,6 @@
 <?php
 $cakeDescription = __d('cake_dev', 'MCCP');
-$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
+$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version());
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,12 +18,18 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             echo $this->Html->script('jquery');
             echo $this->Html->script('jquery_migrate');
             echo $this->Html->script('bootstrap.min');
-            echo $this->Html->script('theme');
+            echo $this->Html->script('app/theme');
 
             echo $this->fetch('meta');
             echo $this->fetch('css');
             echo $this->fetch('script');
         ?>
+
+        <!--[if lte IE 8]>
+        <?php
+            echo $this->fetch('scriptOldIE');
+        ?>
+        <![endif]-->
     </head>
 
     <body>
@@ -102,15 +108,15 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                     <li>
                                         <a href="graphs.html" data-original-title="" title="">Configuration</a>
                                     </li>
+                                    <li>
+                                        <a href="graphs.html" data-original-title="" title="">Management</a>
+                                    </li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-original-title="" title="">Plugins <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="#" data-original-title="" title="">View installed</a></li>
                                             <li><a href="#" data-original-title="" title="">Find &amp; Install</a></li>
                                         </ul>
-                                    </li>
-                                    <li>
-                                        <a href="graphs.html" data-original-title="" title="">Management</a>
                                     </li>
                                 </ul>
                             </nav>

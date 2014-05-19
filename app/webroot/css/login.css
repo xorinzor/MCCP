@@ -11,11 +11,6 @@ body {
 }
 
 #login-wrapper {
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    border-radius: 15px;
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);

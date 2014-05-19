@@ -186,3 +186,13 @@ body {
     text-align: center;
     color: #B6B6B6;
 }
+
+#systemResourceInformation p {
+    margin-bottom: 4px;
+}
+
+#cpuGauge, #memoryGauge {
+    width:160px;
+    height:130px;
+    display: inline-block;
+}
