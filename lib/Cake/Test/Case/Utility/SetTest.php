@@ -2348,7 +2348,7 @@ class SetTest extends CakeTestCase {
 					'hash' => '68a9f053b19526d08e36c6a9ad150737933816a5',
 					'headers' => array(
 							'Date' => "Wed, 14 Nov 2007 15:51:42 GMT",
-							'Server' => "Apache",
+							'Servers' => "Apache",
 							'Expires' => "Thu, 19 Nov 1981 08:52:00 GMT",
 							'Cache-Control' => "private",
 							'Pragma' => "no-cache",
@@ -2375,7 +2375,7 @@ class SetTest extends CakeTestCase {
 					'hash' => '68a9f053b19526d08e36c6a9ad150737933816a5',
 					'headers' => array(
 						'Date' => "Wed, 14 Nov 2007 15:51:42 GMT",
-						'Server' => "Apache",
+						'Servers' => "Apache",
 						'Expires' => "Thu, 19 Nov 1981 08:52:00 GMT",
 						'Cache-Control' => "private",
 						'Pragma' => "no-cache",

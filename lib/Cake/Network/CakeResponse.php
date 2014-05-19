@@ -68,7 +68,7 @@ class CakeResponse {
 		415 => 'Unsupported Media Type',
 		416 => 'Requested range not satisfiable',
 		417 => 'Expectation Failed',
-		500 => 'Internal Server Error',
+		500 => 'Internal Servers Error',
 		501 => 'Not Implemented',
 		502 => 'Bad Gateway',
 		503 => 'Service Unavailable',

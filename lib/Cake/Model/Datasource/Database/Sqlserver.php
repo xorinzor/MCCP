@@ -1,6 +1,6 @@
 <?php
 /**
- * MS SQL Server layer for DBO
+ * MS SQL Servers layer for DBO
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -21,7 +21,7 @@ App::uses('DboSource', 'Model/Datasource');
 /**
  * Dbo layer for Microsoft's official SQLServer driver
  *
- * A Dbo layer for MS SQL Server 2005 and higher. Requires the
+ * A Dbo layer for MS SQL Servers 2005 and higher. Requires the
  * `pdo_sqlsrv` extension to be enabled.
  *
  * @link http://www.php.net/manual/en/ref.pdo-sqlsrv.php
@@ -35,7 +35,7 @@ class Sqlserver extends DboSource {
  *
  * @var string
  */
-	public $description = "SQL Server DBO Driver";
+	public $description = "SQL Servers DBO Driver";
 
 /**
  * Starting quote character for quoted identifiers
@@ -53,7 +53,7 @@ class Sqlserver extends DboSource {
 
 /**
  * Creates a map between field aliases and numeric indexes. Workaround for the
- * SQL Server driver's 30-character column name limitation.
+ * SQL Servers driver's 30-character column name limitation.
  *
  * @var array
  */
@@ -155,7 +155,7 @@ class Sqlserver extends DboSource {
 	}
 
 /**
- * Check that PDO SQL Server is installed/loaded
+ * Check that PDO SQL Servers is installed/loaded
  *
  * @return boolean
  */

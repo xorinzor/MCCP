@@ -118,7 +118,7 @@ class SmtpTransportTest extends CakeTestCase {
 		$this->socket->expects($this->at(4))->method('read')->will($this->returnValue("250 Accepted\r\n"));
 		$this->socket->expects($this->at(5))->method('write')->with("STARTTLS\r\n");
 		$this->socket->expects($this->at(6))->method('read')->will($this->returnValue(false));
-		$this->socket->expects($this->at(7))->method('read')->will($this->returnValue("220 Server ready\r\n"));
+		$this->socket->expects($this->at(7))->method('read')->will($this->returnValue("220 Servers ready\r\n"));
 		$this->socket->expects($this->at(8))->method('enableCrypto')->with('tls')->will($this->returnValue(true));
 		$this->socket->expects($this->at(9))->method('write')->with("EHLO localhost\r\n");
 		$this->socket->expects($this->at(10))->method('read')->will($this->returnValue(false));

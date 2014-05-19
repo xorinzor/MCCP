@@ -434,7 +434,7 @@ class RequestHandlerComponent extends Component {
 /**
  * Gets the server name from which this request was referred
  *
- * @return string Server address
+ * @return string Servers address
  * @deprecated use $this->request->referer() from your controller instead
  */
 	public function getReferer() {

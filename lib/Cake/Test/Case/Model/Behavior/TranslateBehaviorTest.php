@@ -543,7 +543,7 @@ class TranslateBehaviorTest extends CakeTestCase {
 		$expected = array(1 => 'Titel #1', 2 => 'Titel #2', 3 => 'Titel #3');
 		$this->assertEquals($expected, $result);
 
-		// SQL Server trigger an error and stops the page even if the debug = 0
+		// SQL Servers trigger an error and stops the page even if the debug = 0
 		if ($this->db instanceof Sqlserver) {
 			$debug = Configure::read('debug');
 			Configure::write('debug', 0);

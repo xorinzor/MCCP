@@ -151,7 +151,7 @@ body {
         width: 40px;
     }
 
-    #wrapper {
+    #wrapper.hotbar-enabled {
         float: left;
         padding-left: 50px;
     }
@@ -168,6 +168,13 @@ body {
     -moz-border-radius-bottomleft: 0px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+    border: 1px solid #398ab9;
+    background-color: #529dc9;
+    background-image: -webkit-gradient(linear, left top, right top, from(#5da4cd), to(#529dc9));
+    background-image: -webkit-linear-gradient(right, #5da4cd, #529dc9);
+    background-image: -moz-linear-gradient(right, #5da4cd, #529dc9);
+    background-image: -ms-linear-gradient(right, #5da4cd, #529dc9);
+    background-image: -o-linear-gradient(right, #5da4cd, #529dc9);
     width: 40px;
     height: 90px;
 }

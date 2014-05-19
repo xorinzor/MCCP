@@ -46,7 +46,7 @@ class SyslogLog extends BaseLog {
  *		'engine' => 'Syslog',
  *		'types' => array('emergency', 'alert', 'critical', 'error'),
  *		'format' => "%s: My-App - %s",
- *		'prefix' => 'Web Server 01'
+ *		'prefix' => 'Web Servers 01'
  *	));
  * }}}
  *

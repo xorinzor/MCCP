@@ -144,7 +144,7 @@ class SmtpTransport extends AbstractTransport {
 	}
 
 /**
- * Connect to SMTP Server
+ * Connect to SMTP Servers
  *
  * @return void
  * @throws SocketException

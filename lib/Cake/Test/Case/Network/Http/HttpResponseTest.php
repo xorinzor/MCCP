@@ -294,14 +294,14 @@ class HttpResponseTest extends CakeTestCase {
 			'simple-request' => array(
 				'response' => array(
 					'status-line' => "HTTP/1.x 200 OK\r\n",
-					'header' => "Date: Mon, 16 Apr 2007 04:14:16 GMT\r\nServer: CakeHttp Server\r\n",
+					'header' => "Date: Mon, 16 Apr 2007 04:14:16 GMT\r\nServers: CakeHttp Servers\r\n",
 					'body' => "<h1>Hello World</h1>\r\n<p>It's good to be html</p>"
 				),
 				'expectations' => array(
 					'httpVersion' => 'HTTP/1.x',
 					'code' => 200,
 					'reasonPhrase' => 'OK',
-					'headers' => array('Date' => 'Mon, 16 Apr 2007 04:14:16 GMT', 'Server' => 'CakeHttp Server'),
+					'headers' => array('Date' => 'Mon, 16 Apr 2007 04:14:16 GMT', 'Servers' => 'CakeHttp Servers'),
 					'body' => "<h1>Hello World</h1>\r\n<p>It's good to be html</p>"
 				)
 			),
@@ -535,7 +535,7 @@ class HttpResponseTest extends CakeTestCase {
 		$this->HttpResponse->code = 200;
 		$this->HttpResponse->reasonPhrase = 'OK';
 		$this->HttpResponse->headers = array(
-			'Server' => 'CakePHP',
+			'Servers' => 'CakePHP',
 			'ContEnt-Type' => 'text/plain'
 		);
 		$this->HttpResponse->cookies = array(
@@ -543,10 +543,10 @@ class HttpResponseTest extends CakeTestCase {
 			'bar' => array('value' => 'foo')
 		);
 		$this->HttpResponse->body = 'This is a test!';
-		$this->HttpResponse->raw = "HTTP/1.1 200 OK\r\nServer: CakePHP\r\nContEnt-Type: text/plain\r\n\r\nThis is a test!";
+		$this->HttpResponse->raw = "HTTP/1.1 200 OK\r\nServers: CakePHP\r\nContEnt-Type: text/plain\r\n\r\nThis is a test!";
 		$expectedOne = "HTTP/1.1 200 OK\r\n";
 		$this->assertEquals($expectedOne, $this->HttpResponse['raw']['status-line']);
-		$expectedTwo = "Server: CakePHP\r\nContEnt-Type: text/plain\r\n";
+		$expectedTwo = "Servers: CakePHP\r\nContEnt-Type: text/plain\r\n";
 		$this->assertEquals($expectedTwo, $this->HttpResponse['raw']['header']);
 		$expectedThree = 'This is a test!';
 		$this->assertEquals($expectedThree, $this->HttpResponse['raw']['body']);
@@ -561,7 +561,7 @@ class HttpResponseTest extends CakeTestCase {
 		$this->assertEquals($expected, $this->HttpResponse['status']['reason-phrase']);
 
 		$expected = array(
-			'Server' => 'CakePHP',
+			'Servers' => 'CakePHP',
 			'ContEnt-Type' => 'text/plain'
 		);
 		$this->assertEquals($expected, $this->HttpResponse['header']);

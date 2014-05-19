@@ -1230,7 +1230,7 @@ class PaginatorHelperTest extends CakeTestCase {
 				),
 				'paramType' => 'named'
 			),
-			'Server' => array(
+			'Servers' => array(
 				'page' => 1,
 				'current' => 1,
 				'count' => 5,
@@ -1253,7 +1253,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		);
 		$this->assertTags($result, $expected);
 
-		$result = $this->Paginator->next('Next', array('model' => 'Server'), 'No Next', array('model' => 'Server'));
+		$result = $this->Paginator->next('Next', array('model' => 'Servers'), 'No Next', array('model' => 'Servers'));
 		$expected = array(
 			'span' => array('class' => 'next'), 'No Next', '/span'
 		);

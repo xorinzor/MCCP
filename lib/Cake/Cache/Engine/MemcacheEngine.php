@@ -231,7 +231,7 @@ class MemcacheEngine extends CacheEngine {
  * Connects to a server in connection pool
  *
  * @param string $host host ip address or name
- * @param integer $port Server port
+ * @param integer $port Servers port
  * @return boolean True if memcache server was connected
  */
 	public function connect($host, $port = 11211) {

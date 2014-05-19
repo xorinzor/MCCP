@@ -1,6 +1,6 @@
 <?php
 /**
- * built-in Server Shell
+ * built-in Servers Shell
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -18,7 +18,7 @@
 App::uses('AppShell', 'Console/Command');
 
 /**
- * built-in Server Shell
+ * built-in Servers Shell
  *
  * @package       Cake.Console.Command
  */
@@ -149,7 +149,7 @@ class ServerShell extends AppShell {
 		$parser = parent::getOptionParser();
 
 		$parser->description(array(
-			__d('cake_console', 'PHP Built-in Server for CakePHP'),
+			__d('cake_console', 'PHP Built-in Servers for CakePHP'),
 			__d('cake_console', '<warning>[WARN] Don\'t use this at the production environment</warning>')
 		))->addOption('host', array(
 			'short' => 'H',

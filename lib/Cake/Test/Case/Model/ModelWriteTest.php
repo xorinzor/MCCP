@@ -4892,7 +4892,7 @@ class ModelWriteTest extends BaseModelTest {
  * @return void
  */
 	public function testSaveAllEmptyData() {
-		$this->skipIf($this->db instanceof Sqlserver, 'This test is not compatible with SQL Server.');
+		$this->skipIf($this->db instanceof Sqlserver, 'This test is not compatible with SQL Servers.');
 
 		$this->loadFixtures('Article', 'ProductUpdateAll', 'Comment', 'Attachment');
 		$model = new Article();
@@ -6285,7 +6285,7 @@ class ModelWriteTest extends BaseModelTest {
  * @return void
  */
 	public function testSaveManyEmptyData() {
-		$this->skipIf($this->db instanceof Sqlserver, 'This test is not compatible with SQL Server.');
+		$this->skipIf($this->db instanceof Sqlserver, 'This test is not compatible with SQL Servers.');
 
 		$this->loadFixtures('Article', 'ProductUpdateAll', 'Comment', 'Attachment');
 		$model = new Article();
@@ -6304,7 +6304,7 @@ class ModelWriteTest extends BaseModelTest {
  * @return void
  */
 	public function testSaveAssociatedEmptyData() {
-		$this->skipIf($this->db instanceof Sqlserver, 'This test is not compatible with SQL Server.');
+		$this->skipIf($this->db instanceof Sqlserver, 'This test is not compatible with SQL Servers.');
 
 		$this->loadFixtures('Article', 'ProductUpdateAll', 'Comment', 'Attachment');
 		$model = new Article();
@@ -6476,7 +6476,7 @@ class ModelWriteTest extends BaseModelTest {
  * @return void
  */
 	public function testUpdateAllEmptyValues() {
-		$this->skipIf($this->db instanceof Sqlserver || $this->db instanceof Postgres, 'This test is not compatible with Postgres or SQL Server.');
+		$this->skipIf($this->db instanceof Sqlserver || $this->db instanceof Postgres, 'This test is not compatible with Postgres or SQL Servers.');
 
 		$this->loadFixtures('Author', 'Post');
 		$model = new Author();

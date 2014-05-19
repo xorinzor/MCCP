@@ -268,7 +268,7 @@ class SqlserverTest extends CakeTestCase {
 		parent::setUp();
 		$this->Dbo = ConnectionManager::getDataSource('test');
 		if (!($this->Dbo instanceof Sqlserver)) {
-			$this->markTestSkipped('Please configure the test datasource to use SQL Server.');
+			$this->markTestSkipped('Please configure the test datasource to use SQL Servers.');
 		}
 		$this->db = new SqlserverTestDb($this->Dbo->config);
 		$this->model = new SqlserverTestModel();
