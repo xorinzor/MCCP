@@ -27,11 +27,11 @@
                     </div>
                 </li>
                 <li class="divider-vertical"></li>
-                <li <?php if($this->params['controller'] == 'users' && $this->params['action'] == 'all') { echo 'class="active"'; } ?>>
+                <li <?php if($this->params['controller'] == 'users' && in_array($this->params['action'], array('all','add'))) { echo 'class="active"'; } ?>>
                     <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'all')); ?>" data-original-title="" title="">User management</a>
                 </li>
-                <li <?php if($this->params['controller'] == 'servers' && $this->params['action'] == 'all') { echo 'class="active"'; } ?>>
-                    <a href="<?php echo $this->Html->url(array('controller' => 'servers', 'action' => 'all')); ?>" data-original-title="" title="">Manage servers</a>
+                <li <?php if($this->params['controller'] == 'servers' && in_array($this->params['action'], array('all','add'))) { echo 'class="active"'; } ?>>
+                    <a href="<?php echo $this->Html->url(array('controller' => 'servers', 'action' => 'all')); ?>" data-original-title="" title="">Server management</a>
                 </li>
             </ul>
 

@@ -4,9 +4,6 @@ $title_for_layout = 'Login';
 ?>
 
 <div class="container">
-
-
-
     <?php
         $msg = $this->Session->flash('auth');
         if(!empty($msg)) {
@@ -34,7 +31,7 @@ $title_for_layout = 'Login';
                             'id' => 'username',
                             'type' => 'text',
                             'class' => 'form-control',
-                            'placeholder' => 'username',
+                            'placeholder' => __('username'),
                             'label' => false
                         ));
                         ?>
@@ -49,7 +46,7 @@ $title_for_layout = 'Login';
                                 'id' => 'password',
                                 'type' => 'password',
                                 'class' => 'form-control',
-                                'placeholder' => 'password',
+                                'placeholder' => __('password'),
                                 'label' => false
                             ));
                         ?>
@@ -58,7 +55,7 @@ $title_for_layout = 'Login';
             </div>
 
             <div class="footer">
-                <button type="submit" class="btn btn-success">Login</button>
+                <button type="submit" class="btn btn-success"><?php echo __('Login'); ?></button>
             </div>
 
         <?php echo $this->Form->end(); ?>

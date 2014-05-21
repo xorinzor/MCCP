@@ -10,47 +10,57 @@ $title_for_layout = 'Servers list';
                 <h3 class="panel-title">Server list</h3>
             </div>
             <div class="panel-body">
-                <p>Server listing here</p>
+                <?php
+
+                    $msg = $this->Session->flash('good');
+                    if(!empty($msg)) {
+                        echo '<div class="alert alert-success">' . $msg . '</div>';
+                    }
+
+                ?>
 
                 <table class="table table-responsive table-hover">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>IP:port</th>
+                            <th><?php echo $this->Paginator->sort('name', 'Name'); ?></th>
+                            <th><?php echo $this->Paginator->sort('ip', 'IP'); ?></th>
+                            <th><?php echo $this->Paginator->sort('port', 'Port'); ?></th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="<?php echo $this->Html->url(array('controller' => 'servers', 'server' => '1', 'action' => 'dashboard')); ?>">Server #1</a></td>
-                            <td>192.168.13.37:25565</td>
-                            <td><span class="label label-success">Online</span></td>
-                            <td>
-                                <i class="btn btn-danger glyphicon glyphicon-off"></i>
-                                <i class="btn btn-info glyphicon glyphicon-repeat"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="<?php echo $this->Html->url(array('controller' => 'servers', 'server' => '2', 'action' => 'dashboard')); ?>">Server #2</a></td>
-                            <td>80.08.1.35:25565</td>
-                            <td><span class="label label-success">Online</span></td>
-                            <td>
-                                <i class="btn btn-danger glyphicon glyphicon-off"></i>
-                                <i class="btn btn-info glyphicon glyphicon-repeat"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a href="<?php echo $this->Html->url(array('controller' => 'servers', 'server' => '3', 'action' => 'dashboard')); ?>">Server #3</a></td>
-                            <td>127.0.0.1:25565</td>
-                            <td><span class="label label-success">Online</span></td>
-                            <td>
-                                <i class="btn btn-danger glyphicon glyphicon-off"></i>
-                                <i class="btn btn-info glyphicon glyphicon-repeat"></i>
-                            </td>
-                        </tr>
+                    <?php
+                        if(count($data) == 0) {
+                            echo '<tr><td colspan="5">You have no servers configured yet, <a href="'.$this->Html->url(array('controller' => 'servers', 'action' => 'add')).'">add one here</a></td></tr>';
+                        } else {
+                            foreach($data as $server) {
+                                $server = reset($server);
+                                echo '  <tr>
+                                            <td><a href="'.$this->Html->url(array('controller' => 'servers', 'server' => $server['id'], 'action' => 'dashboard')).'">'.$server['name'].'</a></td>
+                                            <td>'.$server['ip'].'</td>
+                                            <td>'.$server['port'].'</td>
+                                            <td><span class="label label-success">Online</span></td>
+                                            <td>
+                                                <i class="btn btn-danger glyphicon glyphicon-off"></i>
+                                                <i class="btn btn-info glyphicon glyphicon-repeat"></i>
+                                            </td>
+                                        </tr>';
+                            }
+                        }
+                    ?>
                     </tbody>
                 </table>
+
+                <?php
+                    echo $this->Paginator->numbers(array(
+                        'before' => '<ul class="pagination">',
+                        'separator' => '',
+                        'currentClass' => 'active',
+                        'tag' => 'li',
+                        'after' => '</ul>'
+                    ));
+                ?>
             </div>
         </div>
     </div>

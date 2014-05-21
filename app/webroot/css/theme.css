@@ -128,6 +128,28 @@ body {
     }
 }
 
+.pagination li.active {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    background-color: #428bca;
+    border-color: #428bca;
+    color: #fff;
+}
+
+.pagination>li:first-child {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.pagination>li:last-child {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
 
 .top-bar {
     margin: 0px 0 10px 0;

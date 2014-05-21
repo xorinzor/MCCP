@@ -60,9 +60,7 @@ class UsersController extends AppController {
                 $this->redirect(array('action' => 'index'));
                 return;
             }
-            $this->Session->setFlash(
-                __('The user could not be saved. Please, try again.')
-            );
+            $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
         } else {
             $this->request->data = $this->User->read(null, $id);
             unset($this->request->data['User']['password']);
@@ -92,7 +90,7 @@ class UsersController extends AppController {
 
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                $this->redirect($this->Auth->redirect());
+                $this->redirect('/');
                 return;
             }
             $this->Session->setFlash(__('Invalid username or password, try again'));

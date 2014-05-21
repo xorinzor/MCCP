@@ -30,6 +30,9 @@
  */
 	Router::connect('/pages/:action/*', array('controller' => 'pages'));
 
+    Router::connect('/users/all/*', array('controller' => 'users', 'action' => 'all'));
+    Router::connect('/users/:user/:action/*', array('controller' => 'users'));
+
     Router::connect('/servers/all/*', array('controller' => 'servers', 'action' => 'all'));
     Router::connect('/servers/:server/:action/*', array('controller' => 'servers'));
 
